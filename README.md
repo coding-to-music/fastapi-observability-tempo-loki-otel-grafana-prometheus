@@ -1,3 +1,29 @@
+ fastapi-observability-tempo-loki-otel-grafana-prometheus
+
+# 🚀 Observe FastAPI app with three pillars of observability: Traces (Tempo), Metrics (Prometheus), Logs (Loki) on Grafana through OpenTelemetry and OpenMetrics. 🚀
+
+https://github.com/coding-to-music/fastapi-observability-tempo-loki-otel-grafana-prometheus
+
+From / By https://github.com/blueswen/fastapi-observability
+
+## Environment variables:
+
+```java
+
+```
+
+## GitHub
+
+```java
+git init
+git add .
+git remote remove origin
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:coding-to-music/fastapi-observability-tempo-loki-otel-grafana-prometheus.git
+git push -u origin main
+```
+
 # FastAPI with Observability
 
 Observe the FastAPI application with three pillars of observability on [Grafana](https://github.com/grafana/grafana):
