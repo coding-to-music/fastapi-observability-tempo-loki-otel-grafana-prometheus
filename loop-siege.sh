@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# This has not been tested or run yet
+
 # set the initial values for the variables
 url="http://example.com"
 concurrency=10
