@@ -9,71 +9,127 @@ deleteDatasources:
 # list of datasources to insert/update depending
 # what's available in the database
 datasources:
-  # <string, required> name of the datasource. Required
-  - uid: prometheus
+  # # Prometheus datasource
+  # - uid: prometheus
+  #   orgId: 1
+  #   name: Prometheus
+  #   type: prometheus
+  #   typeName: Prometheus
+  #   access: proxy
+  #   url: http://prometheus:9090
+  #   password: ''
+  #   user: ''
+  #   database: ''
+  #   basicAuth: false
+  #   isDefault: true
+  #   jsonData:
+  #     exemplarTraceIdDestinations:
+  #       - datasourceUid: tempo
+  #         name: TraceID
+  #     httpMethod: POST
+  #   readOnly: false
+  #   editable: true
+
+  # # Tempo datasource
+  # - uid: tempo
+  #   orgId: 1
+  #   name: Tempo
+  #   type: tempo
+  #   typeName: Tempo
+  #   access: proxy
+  #   url: http://tempo
+  #   password: ''
+  #   user: ''
+  #   database: ''
+  #   basicAuth: false
+  #   isDefault: false
+  #   jsonData:
+  #     nodeGraph:
+  #       enabled: true
+  #     search:
+  #       hide: false
+  #     lokiSearch:
+  #       datasourceUid: loki
+  #     tracesToLogs:
+  #       datasourceUid: loki
+  #       filterBySpanID: false
+  #       filterByTraceID: true
+  #       mapTagNamesEnabled: false
+  #       tags:
+  #         - compose_service
+  #   readOnly: false
+  #   editable: true
+
+  # # Loki datasource
+  # - uid: loki
+  #   orgId: 1
+  #   name: Loki
+  #   type: loki
+  #   typeName: Loki
+  #   access: proxy
+  #   url: http://loki:3100
+  #   password: ''
+  #   user: ''
+  #   database: ''
+  #   basicAuth: false
+  #   isDefault: false
+  #   jsonData:
+  #     derivedFields:
+  #       - datasourceUid: tempo
+  #         matcherRegex: (?:trace_id)=(\w+)
+  #         name: TraceID
+  #         url: $${__value.raw}
+  #   readOnly: false
+  #   editable: true
+
+  # # Redis datasource
+  # - uid: redis
+  #   orgId: 1
+  #   name: Redis
+  #   type: redis
+  #   access: proxy
+  #   url: http://redis:6379
+  #   password: ''
+  #   user: ''
+  #   database: 0
+  #   basicAuth: false
+  #   isDefault: false
+  #   jsonData:
+  #     clientName: ''
+  #     maxOpenConnections: 0
+  #     maxIdleConnections: 2
+  #     pingInterval: 0
+  #     timeField: timestamp
+  #   readOnly: false
+  #   editable: true
+
+  # # RedisInsight datasource
+  # - uid: redisinsight
+  #   orgId: 1
+  #   name: RedisInsight
+  #   type: redis-insight
+  #   access: proxy
+  #   url: http://redisinsight:8001
+  #   password: ''
+  #   user: ''
+  #   database: ''
+  #   basicAuth: false
+  #   isDefault: false
+  #   jsonData:
+  #     maxOpenConnections: 0
+  #     maxIdleConnections: 2
+  #   readOnly: false
+  #   editable: true
+
+  # Postgres datasource
+  - uid: postgres
     orgId: 1
-    name: Prometheus
-    type: prometheus
-    typeName: Prometheus
+    name: Postgres
+    type: postgres
     access: proxy
-    url: http://prometheus:9090
-    password: ''
-    user: ''
-    database: ''
-    basicAuth: false
-    isDefault: true
-    jsonData:
-      exemplarTraceIdDestinations:
-        - datasourceUid: tempo
-          name: TraceID
-      httpMethod: POST
-    readOnly: false
-    editable: true
-  - uid: tempo
-    orgId: 1
-    name: Tempo
-    type: tempo
-    typeName: Tempo
-    access: proxy
-    url: http://tempo
-    password: ''
-    user: ''
-    database: ''
-    basicAuth: false
-    isDefault: false
-    jsonData:
-      nodeGraph:
-        enabled: true
-      search:
-        hide: false
-      lokiSearch:
-        datasourceUid: loki
-      tracesToLogs:
-        datasourceUid: loki
-        filterBySpanID: false
-        filterByTraceID: true
-        mapTagNamesEnabled: false
-        tags:
-          - compose_service
-    readOnly: false
-    editable: true
-  - uid: loki
-    orgId: 1
-    name: Loki
-    type: loki
-    typeName: Loki
-    access: proxy
-    url: http://loki:3100
-    password: ''
-    user: ''
-    database: ''
-    basicAuth: false
-    isDefault: false
-    jsonData:
-      derivedFields:
-        - datasourceUid: tempo
-          matcherRegex: (?:trace_id)=(\w+)
-          name: TraceID
-          url: $${__value.raw}
-    readOnly: false
-    editable: true
+    url: postgres://postgres:${POSTGRES_PASSWORD}@provider1-db:5432/${POSTGRES_DB}
+      jsonData:
+        sslmode: require # only needed if using SSL
+        maxOpenConn: 50 # set maximum number of open connections, optional
+        maxIdleConn: 10 # set maximum number of idle connections, optional
+      readOnly: true # optional, set to false if you want to write to the database
