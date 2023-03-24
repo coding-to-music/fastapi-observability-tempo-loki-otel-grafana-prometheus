@@ -94,6 +94,135 @@ need to run this on first run of the container
 CREATE DATABASE "MyDataBase";
 ```
 
+## Overview of services ports and purpose 
+
+## Working
+
+| Status | Service | DependsOn | Port | Description | Comments |
+| -------- | -------- | -------- | -------- | -------- |
+| Verify | Postgres | DependsOn | localpost@db:5432/otel-grafana-demo | Database | No Errors |
+| Works | Grafana | Prometheus | [http://localhost:4000](http://localhost:4000) | Visualize all | No Errors |
+| Works | Jaeger | DependsOn | [http://localhost:16686/search](http://localhost:16686/search) | Distributed tracing backend | No Errors |
+| Works | Promtail | DependsOn | ???? | ???? | error="Post \"http://loki:3100/loki/api/v1/push\": dial tcp: lookup loki on 127.0.0.11:53: server misbehaving" |
+| Mostly Works | app NextJS App | DependsOn | [http://localhost:3000](http://localhost:3000) | NextJS app that we will monitor | Category does not load, cannot save data |
+| Works | Prisma | DependsOn | NA | Database Schema abstraction | Loaded by api service |
+| Works | API | DependsOn | [http://localhost:8080](http://localhost:8080) | {"hello":"World"} via Nodeman, calls prisma, connects to DB | node crypto hash: error:0308010C:digital envelope routines::unsupported |
+| Works | Prometheus | Loki | [http://localhost:9090](http://localhost:9090) | Metrics and alerting backend | No Errors |
+| Works | WebApp-A | Loki | [http://localhost:8000](http://localhost:8000) | WebApp1 | No Errors |
+| Works | WebApp-B | Loki | [http://localhost:8002](http://localhost:8002) | WebApp2 | No Errors |
+| Works | WebApp-C | Loki | [http://localhost:8003](http://localhost:8003) | WebApp3 | No Errors |
+| Works | Redis | NA | [http://localhost:6379](http://localhost:6379) | Redis | No Errors |
+| Works | Redis Insight | Redis | [http://localhost:6379](http://localhost:6379) | Redis Insight | No Errors |
+| Works | pgAdmin | Postgres | [http://localhost:6379](http://localhost:6379) | pgAdmin | No Errors |
+| Works | Tempo | DependsOn | [http://localhost:6379](http://localhost:6379) | Tempo | No Errors |
+| Works | Loki | NA | [http://localhost:6379](http://localhost:6379) | Loki | No Errors |
+
+## Issues and need to verify
+
+| Status | Service | Port | Description | Comments |
+| -------- | -------- | -------- | -------- | -------- |
+| Errors | Loki | [http://localhost:XXXX](http://localhost:XXXX) | Logs aggregation system | creating WAL folder at "/wal": mkdir wal: permission denied |
+| Verify | API - Metrics | [http://localhost:9464](http://localhost:9464) | ZZZZ | EEEEE |
+| Verify | OpenTelemetry | YYYY | Instrument the application | EEEEE |
+
+## Ports
+
+- [Jaeger http://localhost:16686/search](http://localhost:16686/search) - Distributed tracing backend.
+- [Prometheus http://localhost:9090](http://localhost:9090) - Metrics and alerting backend.
+
+
+- [Grafana http://localhost:4000](http://localhost:4000) - Visualize all of our observability data.
+- [NextJS App http://localhost:3000](http://localhost:3000) - NextJS app that we will monitor using OpenTelemetry and Grafana
+- [API http://localhost:8080](http://localhost:8080)
+
+DATABASE_URL: "postgresql://postgres:localpost@db:5432/otel-grafana-demo"
+
+
+## Not working:
+
+There is no pre-built dashboard for Grafana
+ 
+- [API - Metrics http://localhost:9464](http://localhost:9464)
+
+- [Loki http://localhost:XXXX](http://localhost:XXXX) - Logs aggregation system.
+- [OpenTelemetry http://localhost:XXXX](http://localhost:XXXX) - Instrument the application and send observability data to each backend.
+
+http://localhost:9080/
+http://localhost:3100/ Loki
+
+## Docker commands
+
+```java
+# General
+alias dve="docker -v"
+alias dl="docker login --username=dragol" 
+# Explanation
+# dve - prints out current docker version
+# dl - docker login, will prompt you for password
+
+# Images
+alias dil="docker images"
+alias dip="docker image prune -f"
+# Explanation
+# dil - list all docker images available on my machine
+# dip - remove all dangling images -f is flag for force
+
+# Containers
+alias dcl="docker ps"
+alias dcla="docker ps -a"
+alias dcp="docker container prune -f"
+alias dci="docker inspect"
+alias dciip="docker inspect -f \"{{ .NetworkSettings.IPAddress }}\""
+alias dcs="docker start"
+alias dcd="docker down"
+alias dcr="docker restart"
+# Explanation
+# dcl - list running containers
+# dcla - list all containers
+# dcp - remove all dangling containers
+# dci - here you need to pass container id in order to get various information about particular container
+# dciip - returns container IP address
+# dcs - here you need to pass container id in order to start container
+# dcd - here you need to pass container id in order to stop container
+# dcr - here you need to pass container id in order to restart container
+
+# Networks
+alias dnl="docker network ls"
+alias dni="docker network inspect"
+alias dnrm="docker network rm"
+alias dnp="docker network prune -f"
+# Explanation
+# dnl - list networks
+# dni - here you need to pass network id in order to see it's details
+# dnrm - here you need to pass network id in order to delete it
+# dnp - remove all dangling networks
+
+# Volumes
+alias dvc="docker volume create"
+alias dvl="docker volume ls"
+alias dvrm="docker volume rm"
+alias dvp="docker volume prune -f"
+alias dvi="docker volume inspect"
+# Explanation
+# dvc - here you need to pass volume name in order to create it
+# dvl - list volumes
+# dvrm - here you need to pass volume id in order to delete it
+# dvp - remove all dangling volumes
+# dvi - here you need to pass volumeid in order to see it's details
+
+# Docker-Compose
+alias dcv="docker-compose -v"
+alias dcu="docker-compose up"
+alias dcd="docker-compose down"
+alias dcb="docker-compose build --no-cache"
+alias dcc="docker-compose config"
+# Explanation
+# dcv - prints out docker compose version
+# dcu - start docker compose
+# dcd - stop docker compose
+# dcb - new docker compose build from ground up
+# dcc - check if docker-compose.yml file is valid
+```
 
 3. Send requests with [siege](https://linux.die.net/man/1/siege) and curl to the FastAPI app
 
