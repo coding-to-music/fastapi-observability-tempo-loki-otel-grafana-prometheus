@@ -122,14 +122,14 @@ datasources:
   #   editable: true
 
   # Postgres datasource
-  - uid: postgres
-    orgId: 1
-    name: Postgres
-    type: postgres
-    access: proxy
-    url: postgres://postgres:${POSTGRES_PASSWORD}@provider1-db:5432/${POSTGRES_DB}
-      jsonData:
-        sslmode: require # only needed if using SSL
-        maxOpenConn: 50 # set maximum number of open connections, optional
-        maxIdleConn: 10 # set maximum number of idle connections, optional
-      readOnly: true # optional, set to false if you want to write to the database
+  # - uid: postgres
+  #   orgId: 1
+  #   name: Postgres
+  #   type: postgres
+  #   access: proxy
+  #   url: postgres://postgres:${POSTGRES_PASSWORD}@provider1-db:5432/${POSTGRES_DB}
+      # jsonData:
+      #   sslmode: require # only needed if using SSL
+      #   maxOpenConn: 50 # set maximum number of open connections, optional
+      #   maxIdleConn: 10 # set maximum number of idle connections, optional
+      # readOnly: true # optional, set to false if you want to write to the database

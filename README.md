@@ -77,6 +77,25 @@ Observe the FastAPI application with three pillars of observability on [Grafana]
    docker-compose up -d
    ```
 
+2.5 Clean up docker
+
+```
+docker-compose down --volumes
+docker ps -aq
+docker stop $(docker ps -aq)
+docker rm $(docker ps -aq)
+docker image prune -a
+docker volume prune
+
+```
+
+need to run this on first run of the container
+
+```
+CREATE DATABASE "MyDataBase";
+```
+
+
 3. Send requests with [siege](https://linux.die.net/man/1/siege) and curl to the FastAPI app
 
    ```bash
