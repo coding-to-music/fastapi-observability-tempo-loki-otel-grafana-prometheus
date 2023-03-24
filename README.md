@@ -428,3 +428,22 @@ grafana:
 8. [Tempo Trace to logs tags discussion](https://community.grafana.com/t/need-to-customize-tempo-option-for-trace-logs-with-loki/59612)
 9. [Starlette Prometheus](https://github.com/perdy/starlette-prometheus)
 10. [Tempo Example](https://github.com/grafana/tempo/tree/main/example/docker-compose/local)
+
+## Redis Insight
+
+```
+Host: Hostname / IP address / Connection URL of the Redis.
+localhost
+Port*
+6379
+6379
+
+Name*
+Logical name for this redis database.
+redis:6379
+
+Username
+default
+
+Password
+```

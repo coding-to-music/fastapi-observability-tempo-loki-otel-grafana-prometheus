@@ -31,7 +31,7 @@ services:
   app-b:
     build: ./fastapi_app/
     ports:
-      - "8001:8000"
+      - "8003:8000"
     depends_on:
       - loki
     environment:
@@ -113,18 +113,23 @@ services:
       - provider1-db
 
   redis:
-    image: redis
+    image: redis:latest
     restart: always
+    environment:
+      REDIS_PASSWORD: your_redis_password
     ports:
-      - 6379:6379
+      - "6379:6379"
     volumes:
-      - ./redis/data:/data
+      - ./redis-data:/data
 
-  redisinsight:
+  redis-insight:
     image: redislabs/redisinsight:latest
     ports:
-      - 8001:8001
-    restart: unless-stopped
+      - "8001:8001"
+    restart: always
     environment:
-      REDISINSIGHT_SERVER__REDIS__HOSTS: "redis:6379"
-      REDISINSIGHT_SERVER__REDIS__PASSWORD: "password"
+      - REDIS_0_HOST=redis
+      - REDIS_0_PORT=6379
+      - REDIS_0_PASSWORD=your_redis_password
+      - REDIS_0_TLS=false
+      - REDIS_0_NAME=My Redis
