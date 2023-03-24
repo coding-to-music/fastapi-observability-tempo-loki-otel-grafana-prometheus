@@ -111,7 +111,7 @@ services:
       - 5432:5432
     volumes:
       - ./boot-otel-tempo-provider1/db/data:/var/lib/postgresql
-      - ./boot-otel-tempo-provider1/db/scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./boot-otel-tempo-provider1/db/scripts/init.sql/init.sql:/docker-entrypoint-initdb.d/init.sql
 
   # pgadmin:
   #   image: dpage/pgadmin4
