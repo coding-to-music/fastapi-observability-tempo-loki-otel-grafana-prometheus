@@ -111,3 +111,20 @@ services:
       PGADMIN_DEFAULT_PASSWORD: admin
     depends_on:
       - provider1-db
+
+  redis:
+    image: redis
+    restart: always
+    ports:
+      - 6379:6379
+    volumes:
+      - ./redis/data:/data
+
+  redisinsight:
+    image: redislabs/redisinsight:latest
+    ports:
+      - 8001:8001
+    restart: unless-stopped
+    environment:
+      REDISINSIGHT_SERVER__REDIS__HOSTS: "redis:6379"
+      REDISINSIGHT_SERVER__REDIS__PASSWORD: "password"
