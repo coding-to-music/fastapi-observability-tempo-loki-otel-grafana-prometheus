@@ -107,12 +107,12 @@ CREATE DATABASE "MyDataBase";
 | Works | FastAPIApp-C | Loki | [Click 8003](http://localhost:8003) | WebApp3 | No Errors |
 | Works | Grafana | Loki, Prometheus | [Click 3000](http://localhost:4000) | Visualize all | No Errors |
 | Works | Prometheus | Loki | [Click 9090](http://localhost:9090) | Metrics and alerting backend | No Errors |
-| Works | Loki | NA | [3100](http://localhost:3100) | Loki | No Errors |
+| Works | pgAdmin | Postgres | [Click 6379](http://localhost:6379) | pgAdmin | No Errors |
+| Works | Redis Insight | Redis | [Click 6379](http://localhost:6379) | Redis Insight | No Errors |
+| Works | Loki | NA | [3100](http://localhost:3100) | Logs aggregation | No Errors |
 | Works | Tempo | Loki | [14250](http://localhost:14250) | Tempo | No Errors |
 | Verify | Postgres | NA | [5432](http://localhost:5432) | Database | No Errors |
-| Works | pgAdmin | Postgres | [Click 6379](http://localhost:6379) | pgAdmin | No Errors |
 | Works | Redis | NA | [6379](http://localhost:6379) | Redis | No Errors |
-| Works | Redis Insight | Redis | [Click 6379](http://localhost:6379) | Redis Insight | No Errors |
 
 ## Not used
 
