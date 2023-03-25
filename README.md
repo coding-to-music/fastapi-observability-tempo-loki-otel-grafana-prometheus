@@ -102,22 +102,28 @@ CREATE DATABASE "MyDataBase";
 
 | Status | Service | DependsOn | Port | Description | Comments |
 | -------- | -------- | -------- | -------- | -------- | -------- |
-| Verify | Postgres | DependsOn | [5432](http://localhost:5432) | Database | No Errors |
+| Works | WebApp-A | Loki | [8000](http://localhost:8000) | WebApp1 | No Errors |
+| Works | WebApp-B | Loki | [8002](http://localhost:8002) | WebApp2 | No Errors |
+| Works | WebApp-C | Loki | [8003](http://localhost:8003) | WebApp3 | No Errors |
 | Works | Grafana | Prometheus | [4000](http://localhost:4000) | Visualize all | No Errors |
+| Works | Prometheus | Loki | [9090](http://localhost:9090) | Metrics and alerting backend | No Errors |
+| Works | Loki | NA | [6379](http://localhost:6379) | Loki | No Errors |
+| Works | Tempo | DependsOn | [6379](http://localhost:6379) | Tempo | No Errors |
+| Verify | Postgres | DependsOn | [5432](http://localhost:5432) | Database | No Errors |
+| Works | pgAdmin | Postgres | [6379](http://localhost:6379) | pgAdmin | No Errors |
+| Works | Redis | NA | [6379](http://localhost:6379) | Redis | No Errors |
+| Works | Redis Insight | Redis | [6379](http://localhost:6379) | Redis Insight | No Errors |
+
+## Not used
+
+| Status | Service | DependsOn | Port | Description | Comments |
+| -------- | -------- | -------- | -------- | -------- | -------- |
 | Works | Jaeger | DependsOn | [16686/search](http://localhost:16686/search) | Distributed tracing backend | No Errors |
 | Works | Promtail | DependsOn | ???? | ???? | error="Post \"http://loki:3100/loki/api/v1/push\": dial tcp: lookup loki on 127.0.0.11:53: server misbehaving" |
 | Mostly Works | app NextJS App | DependsOn | [3000](http://localhost:3000) | NextJS app that we will monitor | Category does not load, cannot save data |
 | Works | Prisma | DependsOn | NA | Database Schema abstraction | Loaded by api service |
 | Works | API | DependsOn | [8080](http://localhost:8080) | {"hello":"World"} via Nodeman, calls prisma, connects to DB | node crypto hash: error:0308010C:digital envelope routines::unsupported |
-| Works | Prometheus | Loki | [9090](http://localhost:9090) | Metrics and alerting backend | No Errors |
-| Works | WebApp-A | Loki | [8000](http://localhost:8000) | WebApp1 | No Errors |
-| Works | WebApp-B | Loki | [8002](http://localhost:8002) | WebApp2 | No Errors |
-| Works | WebApp-C | Loki | [8003](http://localhost:8003) | WebApp3 | No Errors |
-| Works | Redis | NA | [6379](http://localhost:6379) | Redis | No Errors |
-| Works | Redis Insight | Redis | [6379](http://localhost:6379) | Redis Insight | No Errors |
-| Works | pgAdmin | Postgres | [6379](http://localhost:6379) | pgAdmin | No Errors |
-| Works | Tempo | DependsOn | [6379](http://localhost:6379) | Tempo | No Errors |
-| Works | Loki | NA | [6379](http://localhost:6379) | Loki | No Errors |
+
 
 ## Issues and need to verify
 
