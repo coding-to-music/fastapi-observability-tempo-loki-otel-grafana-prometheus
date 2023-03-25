@@ -101,7 +101,7 @@ CREATE DATABASE "MyDataBase";
 ## Working
 
 | Status | Service | DependsOn | Port | Description | Comments |
-| -------- | -------- | -------- | -------- | -------- |
+| -------- | -------- | -------- | -------- | -------- | -------- |
 | Verify | Postgres | DependsOn | localpost@db:5432/otel-grafana-demo | Database | No Errors |
 | Works | Grafana | Prometheus | [http://localhost:4000](http://localhost:4000) | Visualize all | No Errors |
 | Works | Jaeger | DependsOn | [http://localhost:16686/search](http://localhost:16686/search) | Distributed tracing backend | No Errors |
