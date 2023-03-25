@@ -100,29 +100,29 @@ CREATE DATABASE "MyDataBase";
 
 ## Working
 
-| Status | Service | DependsOn | Grafana Datasource | Port | Description | Comments |
-| -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| Works | FastAPIApp-A | Loki | Datasource | [Click 8000](http://localhost:8000) | WebApp1 | No Errors |
-| Works | FastAPIApp-B | Loki | Datasource | [Click 8002](http://localhost:8002) | WebApp2 | No Errors |
-| Works | FastAPIApp-C | Loki | Datasource | [Click 8003](http://localhost:8003) | WebApp3 | No Errors |
-| Works | Grafana | Loki, Prometheus | Datasource | [Click 3000](http://localhost:4000) | Visualize all | No Errors |
-| Works | Prometheus | Loki | Datasource | [Click 9090](http://localhost:9090) | Metrics and alerting backend | No Errors |
-| Works | pgAdmin | Postgres | Datasource | [Click 6379](http://localhost:6379) | pgAdmin | No Errors |
-| Works | Redis Insight | Redis | Datasource | [Click 6379](http://localhost:6379) | Redis Insight | No Errors |
-| Works | Loki | NA | Datasource | [3100](http://localhost:3100) | Logs aggregation | No Errors |
-| Works | Tempo | Loki | Datasource | [14250](http://localhost:14250) | Tempo Traces Batches & Query | No Errors |
-| Verify | Postgres | NA | Datasource | [5432](http://localhost:5432) | Relational Database | password authentication failed for user "postgres" |
-| Works | Redis | NA | Datasource | [6379](http://localhost:6379) | Key Value Database | No Errors |
+| Status | Service | DependsOn | Grafana Datasource | Grafana Dashboard | Port | Description | Comments |
+| -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
+| Works | FastAPIApp-A | Loki | Datasource | Dashboard | [Click 8000](http://localhost:8000) | WebApp1 | No Errors |
+| Works | FastAPIApp-B | Loki | Datasource | Dashboard | [Click 8002](http://localhost:8002) | WebApp2 | No Errors |
+| Works | FastAPIApp-C | Loki | Datasource | Dashboard | [Click 8003](http://localhost:8003) | WebApp3 | No Errors |
+| Works | Grafana | Loki, Prometheus | Datasource | Dashboard | [Click 3000](http://localhost:4000) | Visualize all | No Errors |
+| Works | Prometheus | Loki | Datasource | Dashboard | [Click 9090](http://localhost:9090) | Metrics and alerting backend | No Errors |
+| Works | pgAdmin | Postgres | Datasource | Dashboard | [Click 6379](http://localhost:6379) | pgAdmin | No Errors |
+| Works | Redis Insight | Redis | Datasource | Dashboard | [Click 6379](http://localhost:6379) | Redis Insight | No Errors |
+| Works | Loki | NA | Datasource | Dashboard | [3100](http://localhost:3100) | Logs aggregation | No Errors |
+| Works | Tempo | Loki | Datasource | Dashboard | [14250](http://localhost:14250) | Tempo Traces Batches & Query | No Errors |
+| Verify | Postgres | NA | Datasource | Dashboard | [5432](http://localhost:5432) | Relational Database | password authentication failed for user "postgres" |
+| Works | Redis | NA | Datasource | Dashboard | [6379](http://localhost:6379) | Key Value Database | No Errors |
 
 ## Not used
 
-| Status | Service | DependsOn | Grafana Datasource | Port | Description | Comments |
-| -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| Works | Jaeger | DependsOn | Datasource | [16686/search](http://localhost:16686/search) | Distributed tracing backend | No Errors |
-| Works | Promtail | DependsOn | Datasource | ???? | ???? | error="Post \"http://loki:3100/loki/api/v1/push\": dial tcp: lookup loki on 127.0.0.11:53: server misbehaving" |
-| Mostly Works | app NextJS App | DependsOn | Datasource | [3000](http://localhost:3000) | NextJS app that we will monitor | Category does not load, cannot save data |
-| Works | Prisma | DependsOn | Datasource | NA | Database Schema abstraction | Loaded by api service |
-| Works | API | DependsOn | Datasource | [8080](http://localhost:8080) | {"hello":"World"} via Nodeman, calls prisma, connects to DB | node crypto hash: error:0308010C:digital envelope routines::unsupported |
+| Status | Service | DependsOn | Grafana Datasource | Grafana Dashboard | Port | Description | Comments |
+| -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
+| Works | Jaeger | DependsOn | Datasource | Dashboard | [16686/search](http://localhost:16686/search) | Distributed tracing backend | No Errors |
+| Works | Promtail | DependsOn | Datasource | Dashboard | ???? | ???? | error="Post \"http://loki:3100/loki/api/v1/push\": dial tcp: lookup loki on 127.0.0.11:53: server misbehaving" |
+| Mostly Works | app NextJS App | DependsOn | Datasource | Dashboard | [3000](http://localhost:3000) | NextJS app that we will monitor | Category does not load, cannot save data |
+| Works | Prisma | DependsOn | Datasource | Dashboard | NA | Database Schema abstraction | Loaded by api service |
+| Works | API | DependsOn | Datasource | Dashboard | [8080](http://localhost:8080) | {"hello":"World"} via Nodeman, calls prisma, connects to DB | node crypto hash: error:0308010C:digital envelope routines::unsupported |
 
 
 ## Issues and need to verify

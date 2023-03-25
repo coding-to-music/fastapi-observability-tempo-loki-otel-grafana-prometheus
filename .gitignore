@@ -1,6 +1,8 @@
 redis-data/
 redis/data/
 
+.env 
+
 .DS_Store
 
 # Byte-compiled / optimized / DLL files
