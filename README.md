@@ -71,7 +71,9 @@ Observe the FastAPI application with three pillars of observability on [Grafana]
    ```bash
    docker compose build
    docker compose up -d
+  ```
 
+  ```bash
   # Obsolete
    docker-compose build
    docker-compose up -d
