@@ -110,7 +110,7 @@ CREATE DATABASE "MyDataBase";
 | Works | pgAdmin | Postgres | NA | NA | [Click 6379](http://localhost:6379) | pgAdmin | No Errors |
 | Works | Redis Insight | Redis | NA | NA | [Click 6379](http://localhost:6379) | Redis Insight | No Errors |
 | Works | Loki | NA | Datasource | Dashboard | [3100](http://localhost:3100) | Logs aggregation | No Errors |
-| Works | Tempo | Loki | Datasource | Dashboard | [14250](http://localhost:14250) | Tempo Traces Batches & Query | No Errors |
+| Works | Tempo | Loki | Datasource | Dashboard | [14250](http://localhost:14250) | Tempo Traces Batches & Query | failed to parse blocks: invalid UUID length: 6 |
 | Verify | Postgres | NA | Datasource | Dashboard | [5432](http://localhost:5432) | Relational Database | password authentication failed for user "postgres" |
 | Works | Redis | NA | Datasource | Dashboard | [6379](http://localhost:6379) | Key Value Database | No Errors |
 
