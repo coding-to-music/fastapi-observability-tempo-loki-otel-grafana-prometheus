@@ -102,13 +102,13 @@ CREATE DATABASE "MyDataBase";
 
 | Status | Service | DependsOn | Port | Description | Comments |
 | -------- | -------- | -------- | -------- | -------- | -------- |
-| Works | WebApp-A | Loki | [8000](http://localhost:8000) | WebApp1 | No Errors |
-| Works | WebApp-B | Loki | [8002](http://localhost:8002) | WebApp2 | No Errors |
-| Works | WebApp-C | Loki | [8003](http://localhost:8003) | WebApp3 | No Errors |
-| Works | Grafana | Prometheus | [4000](http://localhost:4000) | Visualize all | No Errors |
+| Works | FastAPIApp-A | Loki | [8000](http://localhost:8000) | WebApp1 | No Errors |
+| Works | FastAPIApp-B | Loki | [8002](http://localhost:8002) | WebApp2 | No Errors |
+| Works | FastAPIApp-C | Loki | [8003](http://localhost:8003) | WebApp3 | No Errors |
+| Works | Grafana | Loki, Prometheus | [3000](http://localhost:4000) | Visualize all | No Errors |
 | Works | Prometheus | Loki | [9090](http://localhost:9090) | Metrics and alerting backend | No Errors |
-| Works | Loki | NA | [6379](http://localhost:6379) | Loki | No Errors |
-| Works | Tempo | DependsOn | [6379](http://localhost:6379) | Tempo | No Errors |
+| Works | Loki | NA | [3100](http://localhost:3100) | Loki | No Errors |
+| Works | Tempo | Loki | [14250](http://localhost:14250) | Tempo | No Errors |
 | Verify | Postgres | DependsOn | [5432](http://localhost:5432) | Database | No Errors |
 | Works | pgAdmin | Postgres | [6379](http://localhost:6379) | pgAdmin | No Errors |
 | Works | Redis | NA | [6379](http://localhost:6379) | Redis | No Errors |
