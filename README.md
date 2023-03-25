@@ -106,13 +106,13 @@ CREATE DATABASE "MyDataBase";
 | Works | FastAPIApp-B | Loki | NA | FastAPI | [Click 8002](http://localhost:8002) | WebApp2 | No Errors |
 | Works | FastAPIApp-C | Loki | NA | FastAPI | [Click 8003](http://localhost:8003) | WebApp3 | No Errors |
 | Works | Grafana | Loki, Prometheus | NA | NA | [Click 3000](http://localhost:4000) | Visualize all | No Errors |
-| Works | Prometheus | Loki | Datasource | Dashboard | [Click 9090](http://localhost:9090) | Metrics and alerting backend | No Errors |
-| Works | pgAdmin | Postgres | NA | NA | [Click 6379](http://localhost:6379) | pgAdmin | No Errors |
-| Works | Redis Insight | Redis | NA | NA | [Click 6379](http://localhost:6379) | Redis Insight | No Errors |
-| Works | Loki | NA | Datasource | Dashboard | [3100](http://localhost:3100) | Logs aggregation | No Errors |
-| Works | Tempo | Loki | Datasource | Dashboard | [14250](http://localhost:14250) | Tempo Traces Batches & Query | failed to parse blocks: invalid UUID length: 6 |
-| Verify | Postgres | NA | Datasource | Dashboard | [5432](http://localhost:5432) | Relational Database | password authentication failed for user "postgres" |
-| Works | Redis | NA | Datasource | Dashboard | [6379](http://localhost:6379) | Key Value Database | No Errors |
+| Works | Prometheus | Loki | Yes-Prometheus | Needed | [Click 9090](http://localhost:9090) | Metrics and alerting backend | No Errors |
+| Works | pgAdmin | Postgres | Yes-Postgres | Needed | [Click 6379](http://localhost:6379) | pgAdmin | No Errors |
+| Works | Redis Insight | Yes-RedisInsight | Needed | NA | [Click 6379](http://localhost:6379) | Redis Insight | No Errors |
+| Works | Loki | NA | Yes-Loki | Needed | [3100](http://localhost:3100) | Logs aggregation | No Errors |
+| Works | Tempo | Loki | Yes-Tempo | Needed | [14250](http://localhost:14250) | Tempo Traces Batches & Query | failed to parse blocks: invalid UUID length: 6 |
+| Verify | Postgres | NA | Yes-Postgres | Needed | [5432](http://localhost:5432) | Relational Database | password authentication failed for user "postgres" |
+| Works | Redis | NA | Yes-Redis | Needed | [6379](http://localhost:6379) | Key Value Database | No Errors |
 
 ## Not used
 
