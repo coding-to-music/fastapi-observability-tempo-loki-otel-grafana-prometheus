@@ -62,22 +62,22 @@ Observe the FastAPI application with three pillars of observability on [Grafana]
 
 1. Install [Loki Docker Driver](https://grafana.com/docs/loki/latest/clients/docker-driver/)
 
-   ```bash
-   docker plugin install grafana/loki-docker-driver:latest --alias loki --grant-all-permissions
-   ```
+```bash
+docker plugin install grafana/loki-docker-driver:latest --alias loki --grant-all-permissions
+```
 
 2. Build application image and start all services with docker-compose
 
-   ```bash
-   docker compose build
-   docker compose up -d
-  ```
+```bash
+docker compose build
+docker compose up -d
+```
 
-  ```bash
-  # Obsolete
-   docker-compose build
-   docker-compose up -d
-   ```
+```bash
+# Obsolete
+docker-compose build
+docker-compose up -d
+```
 
 2.5 Clean up docker
 
@@ -90,7 +90,7 @@ docker image prune -a
 docker volume prune
 ```
 
-need to run this on first run of the container
+need to run this on first run of the container in init.sql
 
 ```
 CREATE DATABASE "MyDataBase";
