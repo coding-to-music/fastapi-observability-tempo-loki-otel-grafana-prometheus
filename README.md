@@ -100,7 +100,7 @@ CREATE DATABASE "MyDataBase";
 
 ## Working
 
-| Status | Service | DependsOn | Datasource | Port | Description | Comments |
+| Status | Service | DependsOn | Grafana Datasource | Port | Description | Comments |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | Works | FastAPIApp-A | Loki | Datasource | [Click 8000](http://localhost:8000) | WebApp1 | No Errors |
 | Works | FastAPIApp-B | Loki | Datasource | [Click 8002](http://localhost:8002) | WebApp2 | No Errors |
@@ -116,7 +116,7 @@ CREATE DATABASE "MyDataBase";
 
 ## Not used
 
-| Status | Service | DependsOn | Datasource | Port | Description | Comments |
+| Status | Service | DependsOn | Grafana Datasource | Port | Description | Comments |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | Works | Jaeger | DependsOn | Datasource | [16686/search](http://localhost:16686/search) | Distributed tracing backend | No Errors |
 | Works | Promtail | DependsOn | Datasource | ???? | ???? | error="Post \"http://loki:3100/loki/api/v1/push\": dial tcp: lookup loki on 127.0.0.11:53: server misbehaving" |
