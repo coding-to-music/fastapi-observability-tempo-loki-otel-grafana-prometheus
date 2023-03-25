@@ -102,13 +102,13 @@ CREATE DATABASE "MyDataBase";
 
 | Status | Service | DependsOn | Grafana Datasource | Grafana Dashboard | Port | Description | Comments |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| Works | FastAPIApp-A | Loki | Datasource | Dashboard | [Click 8000](http://localhost:8000) | WebApp1 | No Errors |
-| Works | FastAPIApp-B | Loki | Datasource | Dashboard | [Click 8002](http://localhost:8002) | WebApp2 | No Errors |
-| Works | FastAPIApp-C | Loki | Datasource | Dashboard | [Click 8003](http://localhost:8003) | WebApp3 | No Errors |
-| Works | Grafana | Loki, Prometheus | Datasource | Dashboard | [Click 3000](http://localhost:4000) | Visualize all | No Errors |
+| Works | FastAPIApp-A | Loki | NA | NA | [Click 8000](http://localhost:8000) | WebApp1 | No Errors |
+| Works | FastAPIApp-B | Loki | NA | NA | [Click 8002](http://localhost:8002) | WebApp2 | No Errors |
+| Works | FastAPIApp-C | Loki | NA | NA | [Click 8003](http://localhost:8003) | WebApp3 | No Errors |
+| Works | Grafana | Loki, Prometheus | NA | NA | [Click 3000](http://localhost:4000) | Visualize all | No Errors |
 | Works | Prometheus | Loki | Datasource | Dashboard | [Click 9090](http://localhost:9090) | Metrics and alerting backend | No Errors |
-| Works | pgAdmin | Postgres | Datasource | Dashboard | [Click 6379](http://localhost:6379) | pgAdmin | No Errors |
-| Works | Redis Insight | Redis | Datasource | Dashboard | [Click 6379](http://localhost:6379) | Redis Insight | No Errors |
+| Works | pgAdmin | Postgres | NA | NA | [Click 6379](http://localhost:6379) | pgAdmin | No Errors |
+| Works | Redis Insight | Redis | NA | NA | [Click 6379](http://localhost:6379) | Redis Insight | No Errors |
 | Works | Loki | NA | Datasource | Dashboard | [3100](http://localhost:3100) | Logs aggregation | No Errors |
 | Works | Tempo | Loki | Datasource | Dashboard | [14250](http://localhost:14250) | Tempo Traces Batches & Query | No Errors |
 | Verify | Postgres | NA | Datasource | Dashboard | [5432](http://localhost:5432) | Relational Database | password authentication failed for user "postgres" |
