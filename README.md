@@ -102,9 +102,9 @@ CREATE DATABASE "MyDataBase";
 
 | Status | Service | DependsOn | Grafana Datasource | Grafana Dashboard | Port | Description | Comments |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| Works | FastAPIApp-A | Loki | NA | NA | [Click 8000](http://localhost:8000) | WebApp1 | No Errors |
-| Works | FastAPIApp-B | Loki | NA | NA | [Click 8002](http://localhost:8002) | WebApp2 | No Errors |
-| Works | FastAPIApp-C | Loki | NA | NA | [Click 8003](http://localhost:8003) | WebApp3 | No Errors |
+| Works | FastAPIApp-A | Loki | NA | FastAPI | [Click 8000](http://localhost:8000) | WebApp1 | No Errors |
+| Works | FastAPIApp-B | Loki | NA | FastAPI | [Click 8002](http://localhost:8002) | WebApp2 | No Errors |
+| Works | FastAPIApp-C | Loki | NA | FastAPI | [Click 8003](http://localhost:8003) | WebApp3 | No Errors |
 | Works | Grafana | Loki, Prometheus | NA | NA | [Click 3000](http://localhost:4000) | Visualize all | No Errors |
 | Works | Prometheus | Loki | Datasource | Dashboard | [Click 9090](http://localhost:9090) | Metrics and alerting backend | No Errors |
 | Works | pgAdmin | Postgres | NA | NA | [Click 6379](http://localhost:6379) | pgAdmin | No Errors |
